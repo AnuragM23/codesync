@@ -30,3 +30,5 @@ export default defineSchema({
     interviewId: v.id("interviews"),
   }).index("by_interview_id", ["interviewId"]),
 });
+
+
