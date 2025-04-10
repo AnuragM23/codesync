@@ -1,3 +1,4 @@
+import '@stream-io/video-react-sdk/dist/css/styles.css';
 import { DeviceSettings, useCall, VideoPreview } from "@stream-io/video-react-sdk";
 import { useEffect, useState } from "react";
 import { Card } from "./ui/card";
@@ -7,7 +8,7 @@ import { Button } from "./ui/button";
 
 function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
   const [isCameraDisabled, setIsCameraDisabled] = useState(true);
-  const [isMicDisabled, setIsMicDisabled] = useState(false);
+  const [isMicDisabled, setIsMicDisabled] = useState(true);
 
   const call = useCall();
 
@@ -22,6 +23,8 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
     if (isMicDisabled) call.microphone.disable();
     else call.microphone.enable();
   }, [isMicDisabled, call.microphone]);
+
+  
 
   const handleJoin = async () => {
     await call.join();
